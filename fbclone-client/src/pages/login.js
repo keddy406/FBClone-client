@@ -1,26 +1,15 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { TextField, Grid, Typography, Button } from "@material-ui/core";
+import { TextField, Grid, Typography, Button, CircularProgress } from "@material-ui/core";
 import PropTypes from "prop-types";
 import AppIcon from "../images/logo.png";
 import axios from "axios";
-const styles = {
-  form: {
-    TextAlign: "center",
-  },
-  image: {
-    margin: "20px auto 20px auto",
-  },
-  pageTitle: {
-    margin: "0 auto 20px auto",
-  },
-  textField: {
-    margin: "20px auto 20px auto",
-  },
-  button: {
-    marginTop: 20,
-  },
-};
+import { Link } from "react-router-dom";
+
+
+const styles =(theme) =>({
+  ...theme.spreadThis
+})
 
 class login extends Component {
   constructor() {
@@ -44,6 +33,7 @@ class login extends Component {
     axios
       .post("/login", userData)
       .then((res) => {
+        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
         console.log(res.data);
         this.setState({
           loading: false,
@@ -51,7 +41,7 @@ class login extends Component {
         this.props.history.push("/");
       })
       .catch((err) => {
-          console.log(err)
+        console.log(err);
         this.setState({
           errors: err.response.data,
           loading: false,
@@ -70,12 +60,12 @@ class login extends Component {
       <Grid container className={classes.form}>
         <Grid item sm />
         <Grid item sm>
-          <img src={AppIcon} alt="Fire" className={classes.image} />
           <Typography variant="h2" className={classes.pageTitle}>
+            <img src={AppIcon} alt="Fire" className={classes.image} />
             Login
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
-             <TextField
+            <TextField
               id="email"
               name="email"
               type="email"
@@ -99,14 +89,27 @@ class login extends Component {
               onChange={this.handleChange}
               fullWidth
             />
+            {errors.general && (
+              <Typography variant="body2" className={classes.customError}>
+                {errors.general}
+              </Typography>
+            )}
             <Button
               type="submit"
               variant="contained"
               color="primary"
               className={classes.button}
+              disabled={loading}
             >
               Login
+              {loading && (
+                <CircularProgress size={24} className={classes.progress} />
+              )}
             </Button>
+            <br />
+            <small>
+              don't have an account? Sign up <Link to="/signup">here</Link>
+            </small>
           </form>
         </Grid>
         <Grid item sm />
