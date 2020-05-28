@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
+import EditDetails from './EditDetails';
 //icons
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
@@ -150,6 +151,7 @@ class Profile extends Component {
                     <KeyboardReturn color="primary"/>
                 </IconButton>
             </Tooltip>
+            <EditDetails />
           </div>
         </Paper>
       ) : (
