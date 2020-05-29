@@ -4,7 +4,7 @@ import { Link } from "react-router-dom/";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
 import MyButton from "../util/MyButton";
-
+import DeleteScream from './DeleteScream'
 //MUI Stuff
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -21,6 +21,7 @@ import { likeScream, unlikeScream } from "../redux/actions/dataActions";
 
 const styles = {
   card: {
+    position: "relative",
     display: "flex",
     marginBottom: 20,
   },
@@ -64,28 +65,30 @@ class Scream extends Component {
         likeCount,
         commentCount,
       },
-      user:{
-        authenticated
-      }
+      user: {
+        authenticated,
+        credentials: { handle },
+      },
     } = this.props;
-    const likeButton = !authenticated ?(
+    const likeButton = !authenticated ? (
       <MyButton tip="Like">
-        <Link to='/login' >
-        <FavoriteBorder color="primary" />
+        <Link to="/login">
+          <FavoriteBorder color="primary" />
         </Link>
       </MyButton>
-    ):(
-      this.likedScream() ?(
-        <MyButton tip="Undo like" onClick ={this.unlikeScream}>
-          <FavoriteIcon color="primary"/>
-        </MyButton>
-      ):(
-        <MyButton tip="Like" onClick ={this.likeScream}>
-        <FavoriteBorder color="primary"/>
+    ) : this.likedScream() ? (
+      <MyButton tip="Undo like" onClick={this.unlikeScream}>
+        <FavoriteIcon color="primary" />
       </MyButton>
-      )
-    )
-
+    ) : (
+      <MyButton tip="Like" onClick={this.likeScream}>
+        <FavoriteBorder color="primary" />
+      </MyButton>
+    );
+    const deleteButton =
+      authenticated && userHandle === handle ? (
+        <DeleteScream screamId={screamId} />
+      ) : null;
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -105,6 +108,7 @@ class Scream extends Component {
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>
+          {deleteButton}
           <Typography variant="body1">{body}</Typography>
           {likeButton}
           <span>{likeCount} Likes</span>
@@ -126,7 +130,7 @@ Scream.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
 });
 
 const mapActionsToProps = {
