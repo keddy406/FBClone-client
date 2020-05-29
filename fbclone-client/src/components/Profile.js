@@ -2,26 +2,27 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
-import EditDetails from './EditDetails';
+import EditDetails from "./EditDetails";
+import MyButton from '../util/MyButton'
 //icons
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 import EditIcon from "@material-ui/icons/Edit";
-import KeyboardReturn from '@material-ui/icons/KeyboardReturn'
+import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 //MUI stuff
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 import MuiLink from "@material-ui/core/Link";
-import IconBUtton from "@material-ui/core/iconButton";
-import Tooltip from "@material-ui/core/Tooltip";
+
 
 //REDUX
 import { connect } from "react-redux";
 import { logoutUser, uploadImage } from "../redux/actions/userActions";
-import IconButton from "@material-ui/core/iconButton";
+
+
 const styles = (theme) => ({
   paper: {
     padding: 20,
@@ -82,9 +83,9 @@ class Profile extends Component {
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
   };
-  handleLogout =() =>{
-      this.props.logoutUser();
-  }
+  handleLogout = () => {
+    this.props.logoutUser();
+  };
   render() {
     const {
       classes,
@@ -107,11 +108,13 @@ class Profile extends Component {
                 hidden="hidden"
                 onChange={this.handleImageChange}
               />
-              <Tooltip title="Edit profile picture " placement="top">
-                <IconBUtton onClick={this.handleEditPicture} className="button">
-                  <EditIcon color="primary" />
-                </IconBUtton>
-              </Tooltip>
+              <MyButton
+                tip="Edit profile picture"
+                onClick={this.handleEditPicture}
+                className="button"
+              >
+                <EditIcon color="primary" />
+              </MyButton>
             </div>
 
             <hr />
@@ -146,11 +149,12 @@ class Profile extends Component {
               <CalendarToday color="primary" />{" "}
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
-            <Tooltip title='Logout' placement="top">
-                <IconButton onClick={this.handleLogout}>
-                    <KeyboardReturn color="primary"/>
-                </IconButton>
-            </Tooltip>
+            <MyButton
+                tip="Logout"
+                onClick={this.handleLogout}
+              >
+                <KeyboardReturn color="primary" />
+              </MyButton>
             <EditDetails />
           </div>
         </Paper>
