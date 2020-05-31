@@ -65,14 +65,14 @@ class signup extends Component {
         <Grid item sm>
           <Typography variant="h2" className={classes.pageTitle}>
             <img src={AppIcon} alt="Fire" className={classes.image} />
-            Signup
+            註冊
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
               id="email"
               name="email"
               type="email"
-              label="Email"
+              label="Email帳號"
               className={classes.textField}
               helperText={errors.email}
               error={errors.email ? true : false}
@@ -84,7 +84,7 @@ class signup extends Component {
               id="password"
               name="password"
               type="password"
-              label="Password"
+              label="輸入密碼"
               className={classes.textField}
               helperText={errors.password}
               error={errors.password ? true : false}
@@ -96,7 +96,7 @@ class signup extends Component {
               id="confirmPassword"
               name="confirmPassword"
               type="password"
-              label="Confirm Password"
+              label="請再輸入密碼一次"
               className={classes.textField}
               helperText={errors.confirmPassword}
               error={errors.confirmPassword ? true : false}
@@ -108,7 +108,7 @@ class signup extends Component {
               id="handle"
               name="handle"
               type="text"
-              label="Handle"
+              label="暱稱"
               className={classes.textField}
               helperText={errors.handle}
               error={errors.handle ? true : false}
@@ -128,14 +128,14 @@ class signup extends Component {
               className={classes.button}
               disabled={loading}
             >
-              Signup
+              註冊
               {loading && (
                 <CircularProgress size={24} className={classes.progress} />
               )}
             </Button>
             <br />
             <small>
-              Already have an account? Login<Link to="/signup">here</Link>
+             已經有帳號了?  從<Link to="/signup">這裡</Link>登入
             </small>
           </form>
         </Grid>

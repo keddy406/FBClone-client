@@ -96,7 +96,7 @@ class Scream extends Component {
       <Card className={classes.card}>
         <CardMedia
           image={userImage}
-          title="profile image"
+          title="封面"
           className={classes.image}
         />
         <CardContent className={classes.content}>
@@ -118,7 +118,7 @@ class Scream extends Component {
           <MyButton tip="comments">
             <ChatIcon color="primary" />
           </MyButton>
-          <span>{commentCount} comments</span>
+          <span>{commentCount} 回應</span>
           <ScreamDialog screamId={screamId} userHandle={userHandle}/>
         </CardContent>
       </Card>

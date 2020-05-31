@@ -60,14 +60,14 @@ class login extends Component {
         <Grid item sm>
           <Typography variant="h2" className={classes.pageTitle}>
             <img src={AppIcon} alt="Fire" className={classes.image} />
-            Login
+            登入
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
               id="email"
               name="email"
               type="email"
-              label="Email"
+              label="Email帳號"
               className={classes.textField}
               helperText={errors.email}
               error={errors.email ? true : false}
@@ -79,7 +79,7 @@ class login extends Component {
               id="password"
               name="password"
               type="password"
-              label="Password"
+              label="密碼"
               className={classes.textField}
               helperText={errors.password}
               error={errors.password ? true : false}
@@ -99,14 +99,14 @@ class login extends Component {
               className={classes.button}
               disabled={loading}
             >
-              Login
+              登入
               {loading && (
                 <CircularProgress size={24} className={classes.progress} />
               )}
             </Button>
             <br />
             <small>
-              don't have an account? Sign up <Link to="/signup">here</Link>
+              沒有帳號?   在 <Link to="/signup">這裡</Link>註冊
             </small>
           </form>
         </Grid>

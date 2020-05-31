@@ -150,7 +150,7 @@ class Profile extends Component {
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
             <MyButton
-                tip="Logout"
+                tip="登出"
                 onClick={this.handleLogout}
               >
                 <KeyboardReturn color="primary" />
@@ -161,7 +161,7 @@ class Profile extends Component {
       ) : (
         <Paper className={classes.paper}>
           <Typography variant="body2" align="center">
-            No Profile founds, please login again
+            請重新登入
           </Typography>
           <div className={classes.buttons}>
             <Button
@@ -170,7 +170,7 @@ class Profile extends Component {
               component={Link}
               to="/login"
             >
-              Login
+              登入
             </Button>
             <Button
               variant="contained"
@@ -178,7 +178,7 @@ class Profile extends Component {
               component={Link}
               to="/signup"
             >
-              Signup
+              註冊
             </Button>
           </div>
         </Paper>

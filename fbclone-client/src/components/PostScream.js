@@ -67,7 +67,7 @@ class PostScream extends Component {
     } = this.props;
     return (
       <Fragment>
-        <MyButton onClick={this.handleOpen} tip="Post a Scream!">
+        <MyButton onClick={this.handleOpen} tip="發個想法">
           <AddIcon />
         </MyButton>
 
@@ -78,7 +78,7 @@ class PostScream extends Component {
           maxWidth="sm"
         >
           <DialogTitle>
-            Post a new scream
+          我正在想...
             <MyButton
               tip="Close"
               onClick={this.handleClose}
@@ -93,7 +93,7 @@ class PostScream extends Component {
               <TextField
                 name="body"
                 type="text"
-                label="SCREAM!!"
+                label="我正在想..."
                 multiline
                 rows="3"
                 placeholder="Scream at your fellow apes"
@@ -111,7 +111,7 @@ class PostScream extends Component {
                 className={classes.submitButton}
                 disabled={loading}
               >
-                Submit
+                發出想法
                 {loading && (
                   <CircularProgress
                     size={30}

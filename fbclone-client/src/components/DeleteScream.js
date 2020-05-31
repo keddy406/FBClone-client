@@ -39,7 +39,7 @@ class DeleteScream extends Component {
     return (
       <Fragment>
         <MyButton
-          tip="Delete Scream"
+          tip="洗淨想法"
           onClick={this.handleOpen}
           btnClassName={classes.deleteButton}
         >
@@ -51,13 +51,13 @@ class DeleteScream extends Component {
           fullWidth
           maxWidth="sm"
         >
-          <DialogTitle>Are you sure to delete this scream?</DialogTitle>
+          <DialogTitle>確定要洗淨這想法?</DialogTitle>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              取消
             </Button>
             <Button onClick={this.deleteScream} color="secondary">
-              Delete
+            洗淨
             </Button>
           </DialogActions>
         </Dialog>

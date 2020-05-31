@@ -70,7 +70,7 @@ class EditDetails extends Component {
     const { classes } = this.props;
     return (
       <Fragment>
-        <MyButton tip="Edit Details" onClick={this.handleOpen} btnClassName={classes.button}
+        <MyButton tip="編輯個人資訊" onClick={this.handleOpen} btnClassName={classes.button}
         >
           <EditIcon color="primary" />
         </MyButton>
@@ -80,16 +80,16 @@ class EditDetails extends Component {
           fullWidth
           maxWidth="sm"
         >
-          <DialogTitle>Edit your details </DialogTitle>
+          <DialogTitle>編輯個人資訊</DialogTitle>
           <DialogContent>
             <form>
               <TextField
                 name="bio"
                 type="text"
-                label="Bio"
+                label="自我介紹"
                 multiline
                 row="3"
-                placeholder="A short bio about yourself"
+                placeholder="你的自我介紹"
                 className={classes.textField}
                 value={this.state.bio}
                 onChange={this.handleChange}
@@ -100,8 +100,8 @@ class EditDetails extends Component {
               <TextField
                 name="website"
                 type="text"
-                label="Website"
-                placeholder="Your personal website"
+                label="個人網站"
+                placeholder="您的個人網站"
                 className={classes.textField}
                 value={this.state.website}
                 onChange={this.handleChange}
@@ -112,8 +112,8 @@ class EditDetails extends Component {
               <TextField
                 name="location"
                 type="text"
-                label="Location"
-                placeholder="where you lived"
+                label="出沒地"
+                placeholder="你的出沒地"
                 className={classes.textField}
                 value={this.state.location}
                 onChange={this.handleChange}
@@ -123,10 +123,10 @@ class EditDetails extends Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              取消
             </Button>
             <Button onClick={this.handleSubmit} color="primary">
-              Save
+              儲存
             </Button>
           </DialogActions>
         </Dialog>

@@ -34,13 +34,13 @@ class Navbar extends Component {
           ) : (
             <Fragment>
               <Button color="inherit" component={Link} to="/login">
-                Login
+                登入
               </Button>
               <Button color="inherit" component={Link} to="">
-                Home
+                回首頁
               </Button>
               <Button color="inherit" component={Link} to="/signup">
-                Signup
+                註冊
               </Button>
             </Fragment>
           )}
