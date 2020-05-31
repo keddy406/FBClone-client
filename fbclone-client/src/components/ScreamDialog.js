@@ -96,7 +96,7 @@ class ScreamDialog extends Component {
       <Fragment>
         <MyButton
           onClick={this.handleOpen}
-          tip="Expand scream"
+          tip="展開"
           tipClassName={classes.expandButton}
         >
           <UnfoldMore color="primary" />
@@ -109,7 +109,7 @@ class ScreamDialog extends Component {
         >
           <DialogContent className={classes.DialogContent}>
             <MyButton
-              tip="Close"
+              tip="關閉"
               onClick={this.handleClose}
               tipClassName={classes.closeButton}
             >

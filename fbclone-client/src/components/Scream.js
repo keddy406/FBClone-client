@@ -115,7 +115,7 @@ class Scream extends Component {
           <Typography variant="body1">{body}</Typography>
           {likeButton}
           <span>{likeCount} Likes</span>
-          <MyButton tip="comments">
+          <MyButton tip="回應">
             <ChatIcon color="primary" />
           </MyButton>
           <span>{commentCount} 回應</span>
