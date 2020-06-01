@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
-import LikeButton from './LikeButton'
+import LikeButton from "./LikeButton";
+import Comments from "./Comments";
 //MUI stuff
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -18,16 +19,12 @@ import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import ChatIcon from "@material-ui/icons/Chat";
 //Redux stuff
 import { connect } from "react-redux";
-import { getScream } from "../redux/actions/dataActions";
+import { getScream } from "../../redux/actions/dataActions";
 import { ThemeProvider, Hidden } from "@material-ui/core";
-
 
 const styles = (theme) => ({
   ...theme.spreadThis,
-  invisibleSeparator: {
-    border: "none",
-    margin: 4,
-  },
+
   profileImage: {
     maxWidth: 150,
     height: 150,
@@ -36,19 +33,18 @@ const styles = (theme) => ({
   },
   DialogContent: {
     padding: 20,
-    'overflow-y': 'overlay',
-    'overflow-x': 'hidden',
+    "overflow-y": "overlay",
+    "overflow-x": "hidden",
   },
   closeButton: {
     position: "aboslute",
     left: "90%",
   },
-  spinnerDiv:{
-    textAlign:'center',
-    marginTop:50,
-    marginBottom:50
-  }
-
+  spinnerDiv: {
+    textAlign: "center",
+    marginTop: 50,
+    marginBottom: 50,
+  },
 });
 class ScreamDialog extends Component {
   state = {
@@ -72,13 +68,14 @@ class ScreamDialog extends Component {
         commentCount,
         userImage,
         userHandle,
+        comments,
       },
       UI: { loading },
     } = this.props;
     const dialogMarkup = loading ? (
-     <div className={classes.spinnerDiv}>
-        <CircularProgress size={200} thickness={2}/>
-       </div>
+      <div className={classes.spinnerDiv}>
+        <CircularProgress size={200} thickness={2} />
+      </div>
     ) : (
       <Grid container spacing={10}>
         <Grid item sm={5}>
@@ -107,6 +104,8 @@ class ScreamDialog extends Component {
           </MyButton>
           <span>{commentCount} 回應</span>
         </Grid>
+        <hr className={classes.invisibleSeparator} />
+        <Comments comments={comments} />
       </Grid>
     );
     return (

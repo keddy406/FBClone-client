@@ -1,99 +1,99 @@
 export default {
-    palette: {
-      primary: {
-        light: "#8ae4ff",
-        main: "#50b2f4",
-        dark: "#0083c1",
-        contrastText: "#ffffff",
+  palette: {
+    primary: {
+      light: "#8ae4ff",
+      main: "#50b2f4",
+      dark: "#0083c1",
+      contrastText: "#ffffff",
+    },
+    secondary: {
+      light: "#e1684f",
+      main: "#aa3925",
+      dark: "#740000",
+      contrastText: "#ffffff",
+    },
+  },
+  spreadThis: {
+    typography: {
+      useNextVariants: true,
+    },
+    form: {
+      textAlign: "center",
+    },
+    image: {
+      margin: "20px auto 20px auto",
+    },
+    pageTitle: {
+      margin: "10px auto 10px auto",
+    },
+    textField: {
+      margin: "10px auto 10px auto",
+    },
+    button: {
+      marginTop: 20,
+      position: "relative",
+    },
+    customError: {
+      color: "red",
+      fontSize: "0.8rem",
+      marginTop: 10,
+    },
+    progress: {
+      position: "absolute",
+    },
+    invisibleSeparator: {
+      border: "none",
+      margin: 4,
+    },
+    visibleSeparator: {
+      width: "100%",
+      borderBottom: "1px solid rgba(0,0,0,0.1)",
+      marginBottom: 20,
+    },
+    paper: {
+      padding: 20,
+    },
+    profile: {
+      "& .image-wrapper": {
+        textAlign: "center",
+        position: "relative",
+        "& button": {
+          position: "absolute",
+          top: "80%",
+          left: "70%",
+        },
       },
-      secondary: {
-        light: "#e1684f",
-        main: "#aa3925",
-        dark: "#740000",
-        contrastText: "#ffffff",
+      "& .profile-image": {
+        width: 200,
+        height: 200,
+        objectFit: "cover",
+        maxWidth: "100%",
+        borderRadius: "50%",
+      },
+      "& .profile-details": {
+        textAlign: "center",
+        "& span, svg": {
+          verticalAlign: "middle",
+        },
+        "& a": {
+          color: "#00bcd4",
+        },
+      },
+      "& hr": {
+        border: "none",
+        margin: "0 0 10px 0",
+      },
+      "& svg.button": {
+        "&:hover": {
+          cursor: "pointer",
+        },
       },
     },
-    spreadThis: {
-      typography: {
-        useNextVariants: true
+    buttons: {
+      textAlign: "center",
+      "& a": {
+        margin: "20px 10px",
       },
-      form: {
-        textAlign: 'center'
-      },
-      image: {
-        margin: '20px auto 20px auto'
-      },
-      pageTitle: {
-        margin: '10px auto 10px auto'
-      },
-      textField: {
-        margin: '10px auto 10px auto'
-      },
-      button: {
-        marginTop: 20,
-        position: 'relative'
-      },
-      customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-      },
-      progress: {
-        position: 'absolute'
-      },
-      invisibleSeparator: {
-        border: 'none',
-        margin: 4
-      },
-      visibleSeparator: {
-        width: '100%',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
-        marginBottom: 20
-      },
-      paper: {
-        padding: 20
-      },
-      profile: {
-        '& .image-wrapper': {
-          textAlign: 'center',
-          position: 'relative',
-          '& button': {
-            position: 'absolute',
-            top: '80%',
-            left: '70%'
-          }
-        },
-        '& .profile-image': {
-          width: 200,
-          height: 200,
-          objectFit: 'cover',
-          maxWidth: '100%',
-          borderRadius: '50%'
-        },
-        '& .profile-details': {
-          textAlign: 'center',
-          '& span, svg': {
-            verticalAlign: 'middle'
-          },
-          '& a': {
-            color: '#00bcd4'
-          }
-        },
-        '& hr': {
-          border: 'none',
-          margin: '0 0 10px 0'
-        },
-        '& svg.button': {
-          '&:hover': {
-            cursor: 'pointer'
-          }
-        }
-      },
-      buttons: {
-        textAlign: 'center',
-        '& a': {
-          margin: '20px 10px'
-        }
-      }
     },
-  }
+  },
+};
