@@ -40,7 +40,9 @@ export default function (state = initialState, action) {
       );
       state.screams[index] = action.payload;
       if (state.scream.screamId === action.payload.screamId) {
+        let temp = state.scream.comments;
         state.scream = action.payload;
+        state.scream.comments= temp
       }
       return {
         ...state,
